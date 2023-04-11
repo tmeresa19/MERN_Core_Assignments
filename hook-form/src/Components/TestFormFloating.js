@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const FormHook = () => {
+export const TestFormFloating = () => {
   // Set up state to track form data
   const [formData, setFormData] = useState({
     firstName: "",
@@ -19,7 +19,7 @@ export const FormHook = () => {
   return (
     <div className="container mt-5">
       <div className="col-md-4">
-        <h1 className="mb-4">Real-Time Form Data</h1>
+        <h1 className="mb-4">Form Data</h1>
         <form>
           {/* First Name input field */}
           <div className="form-group row mb-3">
@@ -101,6 +101,27 @@ export const FormHook = () => {
               />
             </div>
           </div>
+
+          {/* Testing form-floating bootstrap for input field */}
+
+          <div className="form-floating mb-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Title"
+                id="testFloat"
+                name="testFloat"
+                onChange={handleInputChange}
+                value={formData.testFloat}
+              />
+              <label htmlFor="testFloat">Test Title</label>
+            </div>
+
+            <div className="text-end">
+              <button type="submit" className="btn btn-outline-success">
+                Add User
+              </button>
+            </div>
         </form>
 
         {/* Display form data in real-time */}
@@ -117,4 +138,5 @@ export const FormHook = () => {
   );
 };
 
-export default FormHook;
+
+export default TestFormFloating;
