@@ -3,15 +3,15 @@ import { model, Schema } from "mongoose";
 const jokeSchema = Schema(
   {
     //this constructor can optionally take a second argument both arguments should be objects
-    setUp: {
+    setup: {
       type: String,
-      // required: [true, "Setup is required"],
-      // minLength: [10, "The setup should be at least 10 characters, please, enter now"],
+      required: [true, "Setup is required"],
+      minLength: [10, "The setup should be at least 10 characters, please, enter now"],
     },
-    punchLine: {
+    punchline: {
       type: String,
-      // required: [true, "Punchline is required"],
-      // minLength: [3, "The setup should be at least 10 characters"],
+      required: [true, "Punchline is required"],
+      minLength: [3, "The setup should be at least 3 characters"],
     },
   },
   { timestamps: true }
