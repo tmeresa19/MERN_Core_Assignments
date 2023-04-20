@@ -1,9 +1,9 @@
 //import the connect method from mongoose
-import { connect } from "mongoose"; 
+import { connect } from "mongoose"; //updated package.json file by adding a key value pair of "type": "module" so that we
 import dotenv from "dotenv";
-dotenv.config(); //since we are using all of the  in .env we need to import dotenv
+dotenv.config(); //since we are using all of the things in .env variables, we need to import dotenv
 
-
+//can use the same ES import style that we used to in react (instead of JS's) in frontend and backend
 const DB_NAME = process.env.DB_NAME;
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASSWORD;
