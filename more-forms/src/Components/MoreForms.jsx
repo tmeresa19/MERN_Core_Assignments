@@ -1,175 +1,153 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-export const MoreForms = () => {
-  // Set up state to track form data
-  
+function MoreForms() {
+  const [firstName, setFirstName] = useState("");
+  const [firstNameErrors, setFirstNameErrors] = useState("");
 
-  const [firstName, setFirstName] = useState('')
-  const [firstNameError, setFirstNameError] = useState('')
+  const [lastName, setLastName] = useState("");
+  const [lastNameErrors, setLastNameErrors] = useState("");
 
-  const [lastName, setLastName] = useState('')
-  const [lastNameError, setLastNameError] = useState('')
+  const [email, setEmail] = useState("");
+  const [emailErrors, setEmailErrors] = useState("");
 
-  const [email, setEmail] = useState('')
-  const [emailError, setEmailError] = useState('')
+  const [password, setPassword] = useState("");
+  const [passwordErrors, setPasswordErrors] = useState("");
 
-  const [password, setPassword] = useState('')
-  const [passwordError, setPasswordError] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPasswordErrors, setConfirmPasswordErrors] = useState("");
 
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [confirmPasswordError, setConfirmPasswordError] = useState('')
-
-  let formIsValid = false;
-  formIsValid =
-    firstNameError === "" &&
-    lastNameError === "" &&
-    emailError === "" &&
-    passwordError === "" &&
-    confirmPasswordError === "";
-
-    const handleFirstNameChange = (e) => {
+  const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
     if (e.target.value.trim().length < 2) {
-      setFirstNameError('First Name must be at least two characters.');
+      setFirstNameErrors("First name must be at least 2 characters.");
     } else {
-      setFirstNameError('');
+      setFirstNameErrors(null);
     }
   };
-    const handleLastNameChange = (e) => {
+
+  const handleLastNameChange = (e) => {
     setLastName(e.target.value);
     if (e.target.value.trim().length < 2) {
-      setLastNameError('Last Name must be at least two characters.');
+      setLastNameErrors("Last name must be at least 2 characters.");
     } else {
-      setLastNameError('');
+      setLastNameErrors(null);
     }
   };
 
-    const handleEmailChange = (e) => {
+  const handleEmailChange = (e) => {
     setEmail(e.target.value);
-    if (e.target.value.trim().length < 2) {
-      setEmailError('Email must be at least two characters.');
+    if (e.target.value.trim().length < 5) {
+      setEmailErrors("Email must be at least 5 characters.");
     } else {
-      setEmailError('');
+      setEmailErrors(null);
     }
   };
 
-    const handlePasswordChange = (e) => {
+  const handlePasswordChange = (e) => {
     setPassword(e.target.value);
-    if (e.target.value.trim().length < 2) {
-      setPasswordError('Password must be at least two characters.');
+    if (e.target.value.length < 8) {
+      setPasswordErrors("Password must be at least 8 characters.");
     } else {
-      setPasswordError('');
+      setPasswordErrors(null);
     }
   };
 
-    const handleConfirmPasswordChange = (e) => {
+  const handleConfirmPasswordChange = (e) => {
     setConfirmPassword(e.target.value);
-    if (e.target.value.trim().length < 2) {
-      setConfirmPasswordError('Confirm password must be at least two characters.');
+    if (e.target.value !== password) {
+      setConfirmPasswordErrors("Passwords do not match.");
     } else {
-      setConfirmPasswordError('');
+      setConfirmPasswordErrors(null);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (firstNameErrors || lastNameErrors || emailErrors || passwordErrors || confirmPasswordErrors) {
+      alert("Please fix the errors before submitting the form.");
+    } else {
+      alert("Form submitted successfully!");
     }
   };
 
   return (
-    <div className="container mt-5">
-      <div className="col-md-4">
-        <h1 className="mb-4">Form Data for MoreForms</h1>
-        <form>
-          {/* First Name input field */}
-          <div className="form-group row mb-3">
-            <label htmlFor="firstName" className="col-sm-3">
-              First Name:
-            </label>
-            <div className="col-sm-9">
-              <input
-                type="text"
-                className="form-control"
-                id="firstName"
-                name="firstName"
-                onChange={handleFirstNameChange}
-                value={firstName}
-              />
-            </div>
+    <div className="card mt-3">
+      <div className="card-body">
+        <form onSubmit={handleSubmit}>
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              name="firstName"
+              id="firstName"
+              className="form-control"
+              value={firstName}
+              onChange={handleFirstNameChange}
+            />
+            <label htmlFor="firstName">First Name:</label>
+            {firstNameErrors && (
+              <span className="form-text text-danger">{firstNameErrors}</span>
+            )}
           </div>
-          {/* Last Name input field */}
-          <div className="form-group row mb-3">
-            <label htmlFor="lastName" className="col-sm-3">
-              Last Name:
-            </label>
-            <div className="col-sm-9">
-              <input
-                type="text"
-                className="form-control"
-                id="lastName"
-                name="lastName"
-                onChange={handleLastNameChange}
-                value={lastName}
-              />
-            </div>
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              className="form-control"
+              value={lastName}
+              onChange={handleLastNameChange}
+            />
+            <label htmlFor="lastName">Last Name:</label>
+            {lastNameErrors && (
+              <span className="form-text text-danger">{lastNameErrors}</span>
+            )}
           </div>
-          {/* Email input field */}
-          <div className="form-group row mb-3">
-            <label htmlFor="email" className="col-sm-3">
-              Email:
-            </label>
-            <div className="col-sm-9">
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                name="email"
-                onChange={handleEmailChange}
-                value={email}
-              />
-            </div>
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              name="email"
+              id="email"
+              className="form-control"
+              value={email}
+              onChange={handleEmailChange}
+            />
+            <label htmlFor="email">Email:</label>
+            {emailErrors && (
+              <span className="form-text text-danger">{emailErrors}</span>
+            )}
           </div>
-          {/* Password input field */}
-          <div className="form-group row mb-3">
-            <label htmlFor="password" className="col-sm-3">
-              Password:
-            </label>
-            <div className="col-sm-9">
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                name="password"
-                onChange={handlePasswordChange}
-                value={password}
-              />
-            </div>
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              name="password"
+              id="password"
+              className="form-control"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+            <label htmlFor="password">Password:</label>
+            {passwordErrors && (
+              <span className="form-text text-danger">{passwordErrors}</span>
+            )}
           </div>
-          {/* Confirm Password input field */}
-          <div className="form-group row mb-3">
-            <label htmlFor="confirmPassword" className="col-sm-3">
-              Confirm Password:
-            </label>
-            <div className="col-sm-9">
-              <input
-                type="password"
-                className="form-control"
-                id="confirmPassword"
-                name="confirmPassword"
-                onChange={handleConfirmPasswordChange}
-                value={confirmPassword}
-              />
-            </div>
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              name="confirmPassword"
+              id="confirmPassword"
+              className="form-control"
+              value={confirmPassword}
+              onChange={handleConfirmPasswordChange}
+            />
+            <label htmlFor="confirmPassword">Confirm Password:</label>
+            {confirmPasswordErrors && (
+              <span className="form-text text-danger">{confirmPasswordErrors}</span>
+            )}
           </div>
         </form>
-
-        {/* Display form data in real-time */}
-        <h2 className="mb-4 mt-4">Your Form Data:</h2>
-        <ul>
-          <li>First Name: {firstName}</li>
-          <li>Last Name: {lastName}</li>
-          <li>Email: {email}</li>
-          <li>Password: {password}</li>
-          <li>Confirm Password: {confirmPassword}</li>
-        </ul>
       </div>
     </div>
   );
-};
+}
 
-export default MoreForms;
+export { MoreForms };

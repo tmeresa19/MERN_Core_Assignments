@@ -1,4 +1,4 @@
-import { MoreForms } from "./Components/MoreForms";
+import { MoreForms } from "./Components/MoreForms.jsx";
 
 function App() {
   return (
