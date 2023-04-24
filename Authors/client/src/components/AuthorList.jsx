@@ -39,7 +39,7 @@ function AuthorList({ baseUrl }) {
               <Link to={"/authors/" + author._id}>{author.name}</Link>
             </td>
             <td className="d-flex gap-2">
-              <Link className="btn btn-sm btn-warning" to={`/authors/${author._id}/edit`}>Edit</Link>
+              <Link className="btn btn-sm btn-warning" to={`/authors/edit/${author._id}`}>Edit</Link>
               <button onClick={() => handleDelete(author._id)} className="btn btn-sm btn-danger">Delete</button>
             </td>
           </tr>

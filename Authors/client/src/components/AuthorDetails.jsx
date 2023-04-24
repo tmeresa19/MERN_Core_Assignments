@@ -39,7 +39,7 @@ function AuthorDetails({ baseUrl }) {
             <em>{author.artist}</em>
           </h4>
           <div className="card-footer d-flex justify-content-end gap-2">
-            <Link to={`/authors/${id}/edit`} className="btn btn-sm btn-warning">Edit</Link>
+            <Link to={`/authors/edit/${id}`} className="btn btn-sm btn-warning">Edit</Link>
             <button onClick={handleDelete} className="btn btn-sm btn-danger">Delete</button>
           </div>
         </div>

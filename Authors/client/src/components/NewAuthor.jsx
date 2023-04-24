@@ -30,7 +30,7 @@ function NewAuthor({ baseUrl }) {
       .post(baseUrl, author) //we will also pass the author as a payload
       .then((author) => {
         console.log(author) //we will redirect to the All Authors route when successfuly created
-        navigate('/authors')//Once we submit the form, we are going to navigate away from the form. So, we don't need to zero out the form 
+        navigate('/')//Once we submit the form, we are going to navigate away from the form. So, we don't need to zero out the form 
       })
       .catch((err) => {
         console.error(err);

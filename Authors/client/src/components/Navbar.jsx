@@ -18,11 +18,6 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <NavLink className="nav-link" to="/authors">
-                All Authors
-              </NavLink>
-            </li>
-            <li className="nav-item">
               <NavLink className="nav-link" to="/authors/new">
                 Add an Author
               </NavLink>

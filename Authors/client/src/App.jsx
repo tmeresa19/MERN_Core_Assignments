@@ -1,4 +1,4 @@
-import { Navigate, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Fragment } from "react";
 
 import AuthorList from "./components/AuthorList";
@@ -10,18 +10,16 @@ import Navbar from "./components/Navbar";
 
 function App() {
     const baseUrl = 'http://localhost:8000/api/authors'
-  // const testvar = 'http://localhost:8000/api/authors'
-  return (
+
+    return (
     <Fragment>
       <Navbar />
       <div className="container">
         <Routes>
-          <Route path="/" element={<Navigate to="/authors" />} />
-          <Route path="/authors" element={<AuthorList baseUrl={baseUrl} />} />
+          <Route path="/" element={<AuthorList baseUrl={baseUrl} />} />
           <Route path="/authors/new" element={<NewAuthor baseUrl={baseUrl} />} />
-          {/* <Route path="/authors/:id" element={<AuthorDetails baseUrl={testvar} />} /> */}
           <Route path="/authors/:id" element={<AuthorDetails baseUrl={baseUrl} />} />
-          <Route path="/authors/:id/edit" element={<EditAuthorForm baseUrl={baseUrl} />} />
+          <Route path="/authors/edit/:id" element={<EditAuthorForm baseUrl={baseUrl} />} />
         </Routes>
       </div>
     </Fragment>
