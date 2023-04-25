@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 const initialAuthor = {
   name: "",
@@ -52,7 +52,7 @@ function EditAuthor({ baseUrl }) {
 
   return (
     <div className="card">
-      <h3 className="card-header">Edit Author </h3>
+      <h3 className="card-header">Edit this Author </h3>
       <div className="card-body">
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
@@ -73,7 +73,10 @@ function EditAuthor({ baseUrl }) {
               </span>
             )}
           </div>
-          <div className="text-end">
+          <div className="text-end gap-3 d-flex justify-content-end">
+            <Link to="/">
+              <button className="btn btn-primary">Cancel</button>
+            </Link>
             <button type="submit" className="btn btn-primary">
               Submit
             </button>

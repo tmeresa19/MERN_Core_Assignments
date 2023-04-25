@@ -4,9 +4,9 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary shadow mb-3">
       <div className="container">
-        <Link className="navbar-brand" to="/">
+        <h3>
           Favorite Authors
-        </Link>
+        </h3>
         <button
           className="navbar-toggler"
           type="button"
@@ -17,6 +17,11 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/">
+                Home
+              </NavLink>
+            </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/authors/new">
                 Add an Author

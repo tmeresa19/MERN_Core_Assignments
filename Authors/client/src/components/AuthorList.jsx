@@ -31,6 +31,7 @@ function AuthorList({ baseUrl }) {
     <table className="table">
       <thead>
         <th>Author Name</th>
+        <th>Actions Available</th>
       </thead>
       <tbody>
         {authors.map((author) => (
