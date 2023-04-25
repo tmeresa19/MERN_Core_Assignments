@@ -1,3 +1,7 @@
+/* This is a React component called `EditAuthor` that allows the user to edit an author's name. It
+imports necessary dependencies such as `useState`, `useEffect`, `axios`, `Link`, `useParams`, and
+`useNavigate`. It also defines an initial state for the author's name and sets up state variables
+for the author's name, errors, and navigation. */
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
@@ -41,7 +45,7 @@ function EditAuthor({ baseUrl }) {
       .then((author) => {
         console.log(author); //we will redirect to the All Authors route when successfuly created
         setErrors({});
-        navigate(`/authors/${id}`); //Once we submit the form, we are going to navigate away from the form. So, we don't need to zero out the form
+        navigate(`/${id}`); //Once we submit the form, we are going to navigate away from the form. So, we don't need to zero out the form
       })
       .catch((err) => {
         console.error(err);

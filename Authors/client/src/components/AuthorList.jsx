@@ -1,3 +1,11 @@
+/* This is a React functional component called `AuthorList` that lists all the authors from a database
+using an API call with axios. It uses the `useState` and `useEffect` hooks to manage state and make
+the API call respectively. The `baseUrl` prop is passed from the parent component and used in the
+API call. The component also has a `handleDelete` function that deletes an author from the list when
+the delete button is clicked. The component returns a table with two columns: Author Name and
+Actions Available. Each row in the table represents an author and has a link to the author details
+page, an edit button, and a delete button. The `authors` state is mapped over to generate the rows
+in the table. */
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -37,10 +45,10 @@ function AuthorList({ baseUrl }) {
         {authors.map((author) => (
           <tr key={author._id}>
             <td className="align-middle">
-              <Link to={"/authors/" + author._id}>{author.name}</Link>
+              <Link to={"/" + author._id}>{author.name}</Link>
             </td>
             <td className="d-flex gap-2">
-              <Link className="btn btn-sm btn-warning" to={`/authors/edit/${author._id}`}>Edit</Link>
+              <Link className="btn btn-sm btn-warning" to={`/edit/${author._id}`}>Edit</Link>
               <button onClick={() => handleDelete(author._id)} className="btn btn-sm btn-danger">Delete</button>
             </td>
           </tr>

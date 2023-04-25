@@ -1,3 +1,7 @@
+/**
+ * This is a JavaScript function that connects to a MongoDB database using Mongoose and exports the
+ * function for use in other files.
+ */
 //import the connect method from mongoose
 import { connect } from "mongoose"; //updated package.json file by adding a key value pair of "type": "module" so that we
 import dotenv from "dotenv";

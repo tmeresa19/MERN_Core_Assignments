@@ -1,3 +1,12 @@
+/**
+ * This is a React function that sets up routes for different components and passes a base URL as a
+ * prop to some of them.
+ * @returns The App component is being returned, which contains a Navbar component and a container div
+ * that wraps around the Routes components. The Routes components define the different routes of the
+ * application and the corresponding components to be rendered when those routes are accessed. The
+ * baseUrl variable is also defined and passed as a prop to the AuthorList, NewAuthor, AuthorDetails,
+ * and EditAuthorForm components.
+ */
 import { Routes, Route } from "react-router-dom";
 import { Fragment } from "react";
 
@@ -17,9 +26,9 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<AuthorList baseUrl={baseUrl} />} />
-          <Route path="/authors/new" element={<NewAuthor baseUrl={baseUrl} />} />
-          <Route path="/authors/:id" element={<AuthorDetails baseUrl={baseUrl} />} />
-          <Route path="/authors/edit/:id" element={<EditAuthorForm baseUrl={baseUrl} />} />
+          <Route path="/new" element={<NewAuthor baseUrl={baseUrl} />} />
+          <Route path="/:id" element={<AuthorDetails baseUrl={baseUrl} />} />
+          <Route path="/edit/:id" element={<EditAuthorForm baseUrl={baseUrl} />} />
         </Routes>
       </div>
     </Fragment>

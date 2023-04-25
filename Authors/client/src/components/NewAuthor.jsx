@@ -1,3 +1,6 @@
+/* This is a React component called `NewAuthor` that allows a user to add a new author to a database.
+It imports necessary dependencies such as `useState`, `useEffect`, `axios`, `useParams`,
+`useNavigate`, and `Link` from the `react` and `react-router-dom` libraries. */
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate, Link } from "react-router-dom";

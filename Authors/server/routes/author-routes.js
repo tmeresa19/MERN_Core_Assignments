@@ -1,3 +1,10 @@
+/* This is a JavaScript code that defines a router for handling HTTP requests related to authors. It
+imports the Express framework and the necessary controller functions for handling the requests. It
+creates a router using the `express.Router()` constructor and defines the routes for handling HTTP
+requests related to authors. The routes are defined using the `router.route()` method and mapped to
+the corresponding controller functions using the HTTP methods `post`, `get`, `put`, and `delete`.
+The first family of routes doesn't need an ID parameter, while the second family of routes needs an
+ID parameter. Finally, the router is exported as a default module. */
 //first need to import express since we need the router from express.
 import express from "express";
 import {

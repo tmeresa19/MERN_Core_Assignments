@@ -1,3 +1,10 @@
+/**
+ * This is a React component that displays the details of a single author, including their name, and allows the user to edit or delete the author.
+ * @returns The component returns the details of a single author, including their name and artist, as
+ * well as buttons to edit or delete the author. The author's information is retrieved from an API
+ * using the ID parameter from the URL route. If the author data is not yet loaded, the component will
+ * not render anything.
+ */
 //since we are going to call our api here using the id that's in the route (i.e. when we click on the individual author link, it will take us to the details page. And in in the url, we see the id following the /author/. So we need to pull that id out of the route. For that, we need to use useParam)
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -24,7 +31,7 @@ function AuthorDetails({ baseUrl }) {
       .delete(`${baseUrl}/${id}`)
       .then(res => {
         console.log(res.data)//after we log the deleted data, we navigate away to the all authors page
-        navigate('/authors')
+        navigate('/')
 
       })
       .catch((err) => console.error(err))
@@ -35,11 +42,8 @@ function AuthorDetails({ baseUrl }) {
 
         <div className="card-body">
           <h3 className="card-title"> {author.name} </h3>
-          <h4 className="card-subtitle mb-3">
-            <em>{author.artist}</em>
-          </h4>
           <div className="card-footer d-flex justify-content-end gap-2">
-            <Link to={`/authors/edit/${id}`} className="btn btn-sm btn-warning">Edit</Link>
+            <Link to={`/edit/${id}`} className="btn btn-sm btn-warning">Edit</Link>
             <button onClick={handleDelete} className="btn btn-sm btn-danger">Delete</button>
           </div>
         </div>
